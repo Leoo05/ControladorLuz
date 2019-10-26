@@ -49,18 +49,18 @@ public class servicio_luz {
         callPostService (estado);
     }
 
-    public void callPostService (String[] estado) {
+    public void callPostService (final String[] estado) {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    URL urlService = new URL ("http://192.168.112.216:3000/aptos/changeAptoStatusBody" );
+                    URL urlService = new URL ("http://10.10.9.101:3000/aptos/changeAptoStatusBody" );
                     HttpURLConnection connection =  (HttpURLConnection) urlService.openConnection();
                     connection.setRequestMethod("POST");
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setDoOutput(true);
                     DataOutputStream wr = new DataOutputStream (connection.getOutputStream());
-                    wr.writeBytes("{\"luzBano\":false,\"luzCocina\":true,\"luzHabitacion1\":false,\"luzHabitacion2\":false,\"luzHabitacion3\":true,\"luzHabitacion4\":true}");
+                    wr.writeBytes("{\"luzBano\":"+estado[0]+",\"luzCocina\":"+estado[1]+",\"luzHabitacion1\":"+estado[2]+",\"luzHabitacion2\":"+estado[3]+",\"luzHabitacion3\":"+estado[4]+",\"luzHabitacion4\":"+estado[5]+"}");
                     wr.close();
 
                     InputStream responseBody = connection.getInputStream();
@@ -95,14 +95,14 @@ public class servicio_luz {
             public void run() {
 
                 try {
-                    URL urlService = new URL ("http://192.168.180.26:3000/aptos/aptostatus" );
-                    HttpsURLConnection connection =  (HttpsURLConnection) urlService.openConnection();
+                    URL urlService = new URL ("http://10.10.9.101:3000/aptos/aptostatus" );
+                    HttpURLConnection connection =  (HttpURLConnection) urlService.openConnection();
+
                     connection.setRequestMethod("GET");
                     InputStream responseBody = connection.getInputStream();
 
                     if (connection.getResponseCode() == 200) {
                         // Success
-                        InputStreamReader responseBodyReader = new InputStreamReader(responseBody, "UTF-8");
                         JsonString = getStringFromInputStream(responseBody);
                         jsonObject = new JSONObject(JsonString);
 
@@ -122,7 +122,6 @@ public class servicio_luz {
             }
         });
 
-        tvName.setText(nameResponse);
 
 
     } // end callWebService()

@@ -23,6 +23,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="50dp"
         android:text="Bano"
+        android:checked="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +34,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="50dp"
         android:text="Cocina"
+        android:checked="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bano" />
 
@@ -42,6 +44,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="50dp"
+        android:checked="false"
         android:text="Habitacion1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cocina" />
@@ -52,6 +55,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="36dp"
+        android:checked="false"
         android:text="Habitacion2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,6 +66,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="36dp"
+        android:checked="false"
         android:text="Habitacion3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hab2" />
@@ -75,5 +80,26 @@
         android:text="Habitacion4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hab3" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hab1" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="40dp"
+        android:text="Update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
 
 </android.support.constraint.ConstraintLayout>
